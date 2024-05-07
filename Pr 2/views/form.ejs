@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <form action="/insertData" method="post">
+
+        <table align="center" border cellspacing="0" cellpadding="5">
+            <caption> Add Task </caption>
+            <tr>
+                <th>Task Id</th>
+                <td><input type="text" name="taskId" id=""></td>
+            </tr>
+            <tr>
+                <th>Task</th>
+                <td><input type="text" name="name" id=""></td>
+            </tr>
+            <td><input type="submit" value="submit"></td>
+        </table>
+
+
+    </form>
+    <table align="center" border cellspacing="0" cellpadding="5">
+        <caption>User Data</caption>
+        <tr>
+            <th>Task Id</th>
+            <th>Name</th>
+        </tr>
+        <% user.map((val)=>{ %>
+            <tr>
+                <td>
+                    <%=val.taskId %>
+                </td>
+                <td>
+                    <%=val.name %>
+                </td>
+                <td>
+                    <a href="/deleteData?taskId=<%=val.taskId %>">Delete</a>
+                    <a href="/editData?taskId=<%=val.taskId %>">Edit</a>
+                </td>
+            </tr>
+
+
+            <% }) %>
+    </table>
+
+</body>
+
+</html>
